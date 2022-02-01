@@ -1,0 +1,127 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "news"
+    },
+    {
+      "id": 2,
+      "name": "sports"
+    },
+    {
+      "id": 3,
+      "name": "action"
+    },
+    {
+      "id": 4,
+      "name": "interview"
+    }
+  ],
+  "posts": [
+    {
+      "id": 3,
+      "info": "Este es mi segundo Post",
+      "category": 2
+    },
+    {
+      "id": 5,
+      "info": "Este es mi segundo Post",
+      "category": 2
+    },
+    {
+      "id": 6,
+      "info": "Este es mi segundo Post",
+      "category": 2
+    },
+    {
+      "id": 7,
+      "info": "Este es mi segundo Post",
+      "category": 2
+    },
+    {
+      "id": 9,
+      "info": "Este es mi segundo Post",
+      "category": 2
+    },
+    {
+      "id": 14,
+      "info": "TESTING",
+      "category": 1
+    },
+    {
+      "id": 16,
+      "info": "asdasd",
+      "category": 1
+    },
+    {
+      "id": 17,
+      "info": "Nueva info",
+      "category": 2
+    },
+    {
+      "id": 18,
+      "info": "sad",
+      "category": 1
+    },
+    {
+      "id": 19,
+      "info": "asd",
+      "category": 1
+    },
+    {
+      "id": 20,
+      "info": "sad",
+      "category": 1
+    },
+    {
+      "id": 21,
+      "info": "sad",
+      "category": 1
+    },
+    {
+      "id": 22,
+      "info": "dasd",
+      "category": 1
+    },
+    {
+      "id": 24,
+      "info": "asd",
+      "category": 1
+    },
+    {
+      "id": 25,
+      "info": "sda",
+      "category": 1
+    },
+    {
+      "id": 26,
+      "info": "wta QW2",
+      "category": 1
+    },
+    {
+      "id": 27,
+      "info": " AER",
+      "category": 2
+    },
+    {
+      "id": 28,
+      "info": "sad",
+      "category": 1
+    },
+    {
+      "id": 29,
+      "info": "29",
+      "category": 1
+    },
+    {
+      "id": 30,
+      "info": "NUEVA DEBE SER 30",
+      "category": 1
+    },
+    {
+      "id": 31,
+      "info": "debe ser 31",
+      "category": 2
+    }
+  ]
+}
