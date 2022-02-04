@@ -19,12 +19,12 @@
   ],
   "posts": [
     {
-      "id": 3,
-      "info": "Este es mi segundo Post",
-      "category": 2
+      "id": 1,
+      "info": "asilduoasD",
+      "category": 1
     },
     {
-      "id": 5,
+      "id": 2,
       "info": "Este es mi segundo Post",
       "category": 2
     },
@@ -60,12 +60,12 @@
     },
     {
       "id": 18,
-      "info": "sad",
-      "category": 1
+      "info": "info 18",
+      "category": 4
     },
     {
       "id": 19,
-      "info": "asd",
+      "info": "kjhaSDA",
       "category": 1
     },
     {

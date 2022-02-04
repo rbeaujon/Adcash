@@ -28,9 +28,10 @@ export const updatePost = (id, info, category) => ({
 });
 
 /** @namespace  Adcash/Store/Post/Action/checkboxSelected */ 
-    export const checkboxSelected = (id) => ({
+    export const checkboxSelected = (id, location) => ({
         type: CHECKBOX_SELECTED,
         payload: {
-            id
+            id,
+            location
         }    
 });
