@@ -1,4 +1,4 @@
-import { GET_ALL_POST, UPDATE_POST, UPDATE_CUSTOMER_SELECTION, CHECKBOX_SELECTED } from './post.actions';
+import { UPDATE_CUSTOMER_SELECTION, CHECKBOX_SELECTED } from './post.actions';
 
 export const getinitialState = () => ({
     
@@ -29,29 +29,46 @@ export const postReducer = (
     case CHECKBOX_SELECTED:
 
         const cant = state.checkboxSelected.length;
-
-        if(state.checkboxSelected.indexOf(payload.id) === -1) {
-            
-            return {
-                    ...state,
-                    checkboxSelected: [...state.checkboxSelected,payload.id],
-                    howManyCheckBoxAreSelected: cant + 1
-
-            }
+        var record = true;
+        if(payload.location === 'aistica'){
+            var itemId =  parseInt(payload.id);
         }
         else {
-            for( var i = 0; i < state.checkboxSelected.length; i++) { 
-                
-                if (state.checkboxSelected[i] === payload.id) { 
-                    state.checkboxSelected.splice(i, 1); 
-                    i--;
-                }
-                state.howManyCheckBoxAreSelected = cant - 1
+            itemId = payload.id;
+        }
+        var newItem = {                        
+            id: itemId,
+            location: payload.location
+        }
+        if(state.checkboxSelected.length === 0){
+            state.checkboxSelected.push(newItem);
+            return {
+                ...state,
+                howManyCheckBoxAreSelected: cant + 1
             }
+        }
+
+        state.checkboxSelected.map((key, index) => {
+            if (key.id === itemId && key.location === payload.location) {
+                state.checkboxSelected.splice(index, 1); 
+                state.howManyCheckBoxAreSelected = cant - 1
+                record = false;
+                return {
+                    ...state
+                }
+            }      
+ 
+        })
+
+            if(record === true) {   
+
+                state.checkboxSelected.push(newItem);
+                state.howManyCheckBoxAreSelected = cant + 1
                 return {
                     ...state
                 }
             }
+ 
          
         // eslint-disable-next-line no-fallthrough
         default:

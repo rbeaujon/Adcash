@@ -6,6 +6,7 @@ import LoadApp from './loadApp.component';
 import Post from  '../Post/';
 import Category from  '../Categories/';
 import '../../styles/main.scss'
+import { findByPlaceholderText } from '@testing-library/react';
 
 /** @namespace  Adcash/Component/LoadApp/Container/mapStateToProps */
 export const mapStateToProps = (state) => ({
@@ -18,8 +19,8 @@ export const mapStateToProps = (state) => ({
 })
 /** @namespace  Adcash/Component/LoadApp/Container/mapDispatchToProps */
 export const mapDispatchToProps = (dispatch) => ({
-    updatePost: (id, info, category) => dispatch(updatePost(id, info, category)),
-    checkboxSelected: (id) => dispatch(checkboxSelected(id))
+   // updatePost: (id, info, category) => dispatch(updatePost(id, info, category)),
+    checkboxSelected: (id, location) => dispatch(checkboxSelected(id, location))
 });
 
 /** @namespace  Adcash/Component/LoadApp/Container/LoadAppContaiiner */
@@ -31,6 +32,8 @@ export class LoadAppContainer extends PureComponent {
     state = {
         posts: [],
         categories: [],
+        aistica_posts:[],
+        aistica_categories:[],
         update: 0,
         showCheckbox:''
 
@@ -43,7 +46,7 @@ export class LoadAppContainer extends PureComponent {
     }    
 
 
-    componentDidMount() {
+    async componentDidMount() {
         this.getData();
     }  
 
@@ -62,6 +65,22 @@ export class LoadAppContainer extends PureComponent {
             this.setState({
                 ...this.state,
                 categories: json
+            });
+        })
+        fetch('https://aistica.com/adcash/api/posts/')
+        .then((res) => res.json())
+        .then((json) => {
+            this.setState({
+                ...this.state,
+                aistica_posts: json
+            });
+        })
+        fetch('https://aistica.com/adcash/api/categories/')
+        .then((res) => res.json())
+        .then((json) => {
+            this.setState({
+                ...this.state,
+                aistica_categories: json
             });
         })
 

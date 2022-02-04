@@ -1,32 +1,36 @@
+.post_container{
+  display: grid;
+  grid-template-columns:  14vw 14vw 14vw 14vw 14vw;
+  padding: 1px;
+}
+
 .post{
     position: relative;
     color: #443f3f;
-      margin: 20px 20px;
-    width: 200px;
+    margin: 20px 20px;
+    width: 180px;
     height: 150px;
     border-style: groove;
   
   }
 
 .specifications {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(196, 193, 193);
     border-color: black;
-    border: 1px;
-    
 	}
 
-.specifications  p {
-		font-size: 15px;
-    margin: 1em;
-    margin-top: 0em;
-    text-align: center;
+.items {
+		font-size: 12px;
+    margin: 0.5em;
+    margin-top: 1em;
+    text-align: left;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
 
   .checkmark {
-    position: absolute;
-    top: 0;
-    right: 0;
+    position: static;
+    margin-top: 0.5em;
+    margin-left: 5em;
     height: 15px;
     width: 15px;
     background-color: rgb(206, 34, 34);

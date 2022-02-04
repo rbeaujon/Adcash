@@ -79,6 +79,12 @@ export class PostContainer extends PureComponent {
         }
         if (this.props.actionSelected === 'update') {
 
+            // this.props.checkboxSelected.map((item) => {
+            //     if(item.location === 'node') {
+                   
+            //     }
+            // })
+
             const { checkboxSelected } = this.props;
     
             data.preventDefault();
@@ -87,20 +93,34 @@ export class PostContainer extends PureComponent {
             category =  parseInt(category);
 
             var updatePost =  {
-                "id": checkboxSelected[0],
+                "id": checkboxSelected[0].id,
                 "info": info,
                 "category": category
             };
     
-            fetch('http://localhost:3200/posts/' + checkboxSelected[0], {
+            if (checkboxSelected[0].location === 'node'){
+                var link  =  'http://localhost:3200/posts/';
+            }
+            else { link = 'https://aistica.com/adcash/api/posts/' }
+
+            fetch( link  + checkboxSelected[0].id, {
                 method: 'PUT',
                 body: JSON.stringify(updatePost),
                 headers: { 'Content-Type': 'application/json'}
             })
-            .then(res => res.json())
+            .then(res => res.json());
+
+
+
+
+
+
+
+
             this.props.handleUpdate();
             document.getElementById('info').value = '';
             // this.props.updateCustomerSelection('') // return the page to original windows and show all items saved (API)
+            
         }   
         if (this.props.actionSelected === 'delete') {
             this.props.checkboxSelected.map((id) => {
@@ -115,7 +135,7 @@ export class PostContainer extends PureComponent {
 
     renderSelection() {
 
-        const { actionSelected, categories, posts, checkboxSelected } = this.props; 
+        const { actionSelected, categories, posts, howManyCheckBoxAreSelected } = this.props; 
 
         if(posts.length > 0 ){
             var nextId = posts[posts.length-1].id + 1;
@@ -152,10 +172,10 @@ export class PostContainer extends PureComponent {
             
             if(update){ 
        
-                    if (checkboxSelected.length === 1 ) {
+                    if (howManyCheckBoxAreSelected === 1 ) {
                         update.className = "show";
                     }
-                    if (checkboxSelected.length > 1 || checkboxSelected.length === 0) {
+                    else{
                         update.className = "hidden";
                     }   
                 
