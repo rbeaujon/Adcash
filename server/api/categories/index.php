@@ -68,6 +68,39 @@ class CategoriesApi extends api {
 
         // }
     }
+    public function put(){
+
+       
+        // $sku = isset($_POST['sku']);
+        // $name = isset($_POST['name']);
+        // $price = isset($_POST['price']);
+        // $myswitch = isset($_POST['myswitch']);
+
+
+
+        // $code = 200;
+
+        // if($sku == NULL  || $name == NULL  || $price == NULL || $myswitch == NULL){
+
+        //     $code = 400;
+        //     api::responseCode($code); 
+
+        // }  
+        // else {
+               
+        //     api::responseCode($code);
+
+
+        //     $sku = $_POST['sku'];
+        //     $name = $_POST['name'];
+        //     $price = $_POST['price'];
+        //     $myswitch = $_POST['myswitch'];
+                            
+        //     $categories = new categories();
+        //     $categories->create($myswitch, $sku, $name, $price);
+
+        // }
+    }
     public function delete(){
             
         // $itemsToDelete = file_get_contents('php://input');

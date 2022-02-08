@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { PureComponent } from 'react';
-import { updatePost, updateCustomerSelection } from '../../store/post/post.actions';
+import { updateCustomerSelection } from '../../store/post/post.actions';
 import Dropdown from "react-bootstrap/Dropdown";
 import { DropdownButton } from 'react-bootstrap';
 import Category from './category.component';
@@ -58,7 +58,7 @@ export class CategoryContainer extends PureComponent {
             id = parseInt(id);
             let name =  data.target.elements.name.value;
         
-        this.props.categories.map((key) => {
+        this.props.category.map((key) => {
                 if (key.name === name){
                     return (
                         alert ('The category name already exists'),
