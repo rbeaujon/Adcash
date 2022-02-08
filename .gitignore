@@ -1,2 +1,5 @@
 /SW
 node_modules
+/OLD
+/server/config/configDB_LOCAL.php
+

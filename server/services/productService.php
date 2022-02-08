@@ -15,7 +15,7 @@ abstract class ProductService{
  
     public function __construct() { } 
 
-    abstract function create($myswitch, $sku, $name, $price);
+    abstract function create($id, $info, $category);
     public static function delete($items){
         
             // new inst from db
@@ -26,7 +26,7 @@ abstract class ProductService{
         
            //delete items in massive mode from products the list from functions massdelete
             
-            $sql_del= "DELETE FROM products WHERE id in ($items)";
+            $sql_del= "DELETE FROM posts WHERE id in ($items)";
             
             $conn->executeQuery($sql_del);
         
@@ -80,7 +80,7 @@ abstract class ProductService{
 class products extends ProductService {
 
 
-    public function create($myswitch, $sku, $name, $price){
+    public function create($id, $info, $category){
      // Method to create one dvd in the DB
 
             // my new instance of DB
@@ -90,19 +90,31 @@ class products extends ProductService {
             $conn->createConnection();
 
             // registering in db according to the type of the item
-
-            if (isset($_POST['dvdMB']) == TRUE) {$dvdMB = $_POST['dvdMB'];} else {$dvdMB = "NULL";}
-            if (isset($_POST['bookW']) == TRUE) {$bookW = $_POST['bookW'];} else {$bookW = "NULL";}
-            if (isset($_POST['height']) == TRUE) {$height = $_POST['height'];} else {$height = "NULL";}
-            if (isset($_POST['width']) == TRUE) {$width = $_POST['width'];} else {$width = "NULL";}
-            if (isset($_POST['lenght']) == TRUE) {$lenght = $_POST['lenght'];} else {$lenght = "NULL";}
-           
-            $sql_insert = "INSERT INTO products  (sku, name, price, type, dvdSize, bookKg, height, width, length) VALUES ('$sku', '$name', $price, '$myswitch', $dvdMB, $bookW, $height, $width, $lenght)";
+        
+            $sql_insert = "INSERT INTO posts (id, info, category) VALUES ($id, '$info', $category)";
             $conn->executeQuery($sql_insert);
 
             // Closing the connection with BD
             $conn->closeConnection();       
     }   
+
+    public function update($id, $info, $category){
+        // Method to create one dvd in the DB
+   
+               // my new instance of DB
+               $conn = new connectionDB();
+               
+               // Create a new connection with DB
+               $conn->createConnection();
+   
+               // registering in db according to the type of the item
+           
+               $sql_insert = "UPDATE posts SET info='$info', category=$category WHERE id=$id";
+               $conn->executeQuery($sql_insert);
+   
+               // Closing the connection with BD
+               $conn->closeConnection();       
+       }  
 
 }    
 ?>

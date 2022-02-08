@@ -9,7 +9,7 @@ abstract class api {
 
         $method = $_SERVER['REQUEST_METHOD'];
 
-        switch($method){
+        switch($method) {
 
             case "GET": 
                 $this->get();

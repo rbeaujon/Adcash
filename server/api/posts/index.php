@@ -5,6 +5,7 @@
 require (__DIR__."/../../services/productService.php");
 require (__DIR__."/../baseApi.php");
 
+
 class PostsApi extends api {
 
     public $jsonList;
@@ -38,12 +39,16 @@ class PostsApi extends api {
     }
     public function post(){
 
-       
-        // $sku = isset($_POST['sku']);
-        // $name = isset($_POST['name']);
-        // $price = isset($_POST['price']);
-        // $myswitch = isset($_POST['myswitch']);
 
+        $data = json_decode(file_get_contents('php://input'), true);
+        print_r($data);
+        echo $data["METHOD POST"];
+        
+        $code = 200;
+        api::responseCode($code);
+       
+        // $updatePost = isset($_POST['updatePost']);
+       
 
 
         // $code = 200;
@@ -70,32 +75,67 @@ class PostsApi extends api {
         // }
     }
     public function put(){
-
-    
-
+        
         $code = 200;
+        // Raw data from the request and it converts into a PHP object
+        $dataRaw = file_get_contents('php://input');
+        $data = json_decode($dataRaw);
+
+        //Variables from request 
+        $id = $data->id;
+        $info = $data->info;
+        $category = $data->category;
+
+         // Sending the API json response
+
+        if($id == NULL || $info == NULL || $info === "" || $category == NULL){
+
+            $code = 400;
+
+            header('Content-type:application/json');
+            echo  $dataRaw ;
+            api::responseCode($code); 
+
+        }  
+        else {
+        
+            $product = new products();
+            $product->update($id, $info, $category);
 
 
-       return api::responseCode($code); 
+            header('Content-type:application/json');
+            echo $dataRaw;
+    
+            api::responseCode($code); 
 
+         }
   
     }
     public function delete(){
-            
-        // $itemsToDelete = file_get_contents('php://input');
+
+       // Raw data from the request and it converts into a PHP object
+       $dataRaw = file_get_contents('php://input');
       
-        // $code = 200;
+        $code = 200;
 
-        // if($itemsToDelete === "" || $itemsToDelete == NULL){
+        // Sending the API json response
 
-        //     $code = 400;
-        //     api::responseCode($code);
+        if($dataRaw === "" || $dataRaw == NULL){
+
+            $code = 400;
             
-        // }  
-        // else {
-        //     ProductService::delete($itemsToDelete);   
-        //     api::responseCode($code);
-        // };
+            header('Content-type:application/json');
+            echo $dataRaw;
+            api::responseCode($code);
+            
+        }  
+        else {
+            ProductService::delete($dataRaw); 
+            
+            header('Content-type:application/json');
+            echo $dataRaw;
+            api::responseCode($code);
+        };
        
     }
 }
@@ -104,4 +144,3 @@ $PostsApi = new PostsApi();
 $PostsApi->handleRequest();
 
 
-?>

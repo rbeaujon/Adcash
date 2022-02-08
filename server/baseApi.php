@@ -18,6 +18,10 @@ abstract class api {
             case "POST": 
                 $this->post();
             break;  
+
+            case "PUT": 
+                $this->put();
+            break; 
                     
             case "DELETE":
                 $this->delete();
@@ -39,6 +43,7 @@ abstract class api {
     }
     abstract function  get();
     abstract function  post();
+    abstract function  put();
     abstract function  delete();
 
 }

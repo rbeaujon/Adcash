@@ -67,7 +67,7 @@ export class LoadAppContainer extends PureComponent {
                 categories: json
             });
         })
-        fetch('https://aistica.com/adcash/api/posts/')
+        fetch('http://localhost/Adcash/server/api/posts/')
         .then((res) => res.json())
         .then((json) => {
             this.setState({
@@ -75,7 +75,7 @@ export class LoadAppContainer extends PureComponent {
                 aistica_posts: json
             });
         })
-        fetch('https://aistica.com/adcash/api/categories/')
+        fetch('http://localhost/Adcash/server/api/categories/')
         .then((res) => res.json())
         .then((json) => {
             this.setState({

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { PureComponent } from 'react';
-import { updatePost, updateCustomerSelection } from '../../store/post/post.actions';
+import { updateCustomerSelection } from '../../store/post/post.actions';
 import Post from './post.component';
 import Dropdown from "react-bootstrap/Dropdown";
 import { DropdownButton } from 'react-bootstrap';
@@ -16,7 +16,6 @@ export const mapStateToProps = (state) => ({
 })
 
 export const mapDispatchToProps = (dispatch) => ({
-   updatePost: (id, info, category) => dispatch(updatePost(id, info, category)),
    updateCustomerSelection: (post) => dispatch(updateCustomerSelection(post))
 });
 
@@ -52,6 +51,18 @@ export class PostContainer extends PureComponent {
     }
  
     handleSubmit(data) {
+
+        if (this.props.checkboxSelected[0].location === 'node'){
+            if (this.props.actionSelected === 'update'){
+                
+                var link  =  'http://localhost:3200/posts/' + this.props.checkboxSelected[0].id;
+            }else{
+
+                link  =  'http://localhost:3200/posts/'
+            }
+            
+        }
+        else { link = 'http://localhost/Adcash/server/api/posts/' }
             
         if (this.props.actionSelected === 'create') {
             data.preventDefault();
@@ -67,7 +78,7 @@ export class PostContainer extends PureComponent {
                 "category": category
             };
     
-            fetch('http://localhost:3200/posts', {
+            fetch(link, {
                 method: 'POST',
                 body: JSON.stringify(newPost),
                 headers: { 'Content-Type': 'application/json' }
@@ -79,11 +90,6 @@ export class PostContainer extends PureComponent {
         }
         if (this.props.actionSelected === 'update') {
 
-            // this.props.checkboxSelected.map((item) => {
-            //     if(item.location === 'node') {
-                   
-            //     }
-            // })
 
             const { checkboxSelected } = this.props;
     
@@ -92,44 +98,70 @@ export class PostContainer extends PureComponent {
             var category =  data.target.elements.category.value;
             category =  parseInt(category);
 
-            var updatePost =  {
+            var payload =  {
                 "id": checkboxSelected[0].id,
                 "info": info,
                 "category": category
             };
-    
-            if (checkboxSelected[0].location === 'node'){
-                var link  =  'http://localhost:3200/posts/';
-            }
-            else { link = 'https://aistica.com/adcash/api/posts/' }
 
-            fetch( link  + checkboxSelected[0].id, {
+            var requestOptions = {    
                 method: 'PUT',
-                body: JSON.stringify(updatePost),
-                headers: { 'Content-Type': 'application/json'}
-            })
-            .then(res => res.json());
+                headers: { 'Content-Type': 'application/json'},
+                mode: 'cors',
+                body: JSON.stringify(payload)
+            };
 
+            async function putRequest (x) {
+                
+                await fetch(link, requestOptions ) 
+                .then(response => response.json())
+                .then(data => {
+                  console.log('Success: Edit the item with the data:', data);
+                  x.props.handleUpdate();
+                  document.getElementById('info').value = '';
+                })
+                .catch((error) => {
+                  console.error('The data has errors:', error);
+                });
+            }
+            putRequest(this);
 
-
-
-
-
-
-
-            this.props.handleUpdate();
-            document.getElementById('info').value = '';
-            // this.props.updateCustomerSelection('') // return the page to original windows and show all items saved (API)
-            
         }   
         if (this.props.actionSelected === 'delete') {
-            this.props.checkboxSelected.map((id) => {
-                fetch('http://localhost:3200/posts/' + id, {
+            const { checkboxSelected } = this.props;
+            var dataToDelete=[];
+
+            checkboxSelected.map((key) => {
+                return dataToDelete.push(key.id);
+            })
+                requestOptions = {    
+                    method: 'DELETE',
+                    headers: { 'Content-Type': 'application/json'},
+                    mode: 'cors',
+                    body: dataToDelete
+                };
+    
+                async function putRequest (x) {
+                    
+                    await fetch(link, requestOptions ) 
+                    .then(response => response.json())
+                    .then(data => {
+                      console.log('Success: Item deleted = data:', data);
+                      x.props.handleUpdate();
+                      document.getElementById('info').value = '';
+                    })
+                    .catch((error) => {
+                      console.error('The data has errors:', error);
+                    });
+                }
+                putRequest(this);
+
+                fetch( link, {
                 method: 'DELETE',
                 headers: { 'Content-Type': 'application/json' }
                 })
                 .then(res => res.json())
-                })
+             
         }              
     }
 

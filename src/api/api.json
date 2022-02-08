@@ -20,8 +20,8 @@
   "posts": [
     {
       "id": 1,
-      "info": "asilduoasD",
-      "category": 1
+      "info": "Editando ID1 en NODE  cat 4",
+      "category": 4
     },
     {
       "id": 2,
@@ -35,8 +35,8 @@
     },
     {
       "id": 7,
-      "info": "Este es mi segundo Post",
-      "category": 2
+      "info": "Editando  7",
+      "category": 1
     },
     {
       "id": 9,

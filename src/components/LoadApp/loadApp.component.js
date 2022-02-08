@@ -26,7 +26,7 @@ export class LoadApp extends PureComponent {
                     info:{ key.info } <br/> 
                     category:{ 
                     
-                     categories.map((cat) => {
+                    categories.map((cat) => {
                          if (key.category === cat.id) {
                              return cat.name
                          }
