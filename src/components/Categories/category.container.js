@@ -138,8 +138,9 @@ export class CategoryContainer extends PureComponent {
                     
                         <form onSubmit={this.handleSubmit}>
                             <div className='category'>
-                                Insert your new Category's name<br/>
-                                
+                                <div style={{  width:'13vw' }} className="text-justify">
+                                Enter the category name
+                                </div>
                                 <input type ="text" className="mb-3" id="name" name="name"  style={{ height: '3vh', width:'13vw' }} />
                                 <input type="hidden" id="nextCategoryId" name="nextCategoryId" value={ nextCategoryId } />
                                 <br/>
@@ -164,8 +165,10 @@ export class CategoryContainer extends PureComponent {
                 return (
                     <form onSubmit={this.handleSubmit}>
                         <div className='category'>
+                            <div style={{  width:'13vw' }} className="text-justify">
                             Categories availables<br/>
                             Edit them by changing their fields<br/><br/>
+                            </div>
                             <select id="category"  onChange={ () => this.categorySelected()}>
                             <option value="">Select one category</option> 
                                 { categories.map((key) => (

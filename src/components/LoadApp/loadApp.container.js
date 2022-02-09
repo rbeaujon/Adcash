@@ -1,12 +1,11 @@
 
 import { connect } from 'react-redux';
 import { PureComponent } from 'react';
-import { updatePost, checkboxSelected } from '../../store/post/post.actions';
+import { checkboxSelected } from '../../store/post/post.actions';
 import LoadApp from './loadApp.component';
 import Post from  '../Post/';
 import Category from  '../Categories/';
-import '../../styles/main.scss'
-import { findByPlaceholderText } from '@testing-library/react';
+import '../../styles/main.scss';
 
 /** @namespace  Adcash/Component/LoadApp/Container/mapStateToProps */
 export const mapStateToProps = (state) => ({
