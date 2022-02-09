@@ -70,7 +70,7 @@ export class LoadApp extends PureComponent {
       
     render() {
         return (
-            <div className='post_container'>
+            <div className='containerInfo'>
                 { this.renderPHP() }
                 { this.renderNode() }
             </div>

@@ -1,7 +1,8 @@
-@media screen and (min-width: 1441px) {
+/* bigger screen */
+@media screen and (min-width: 1750px) and (max-width: 3000px) and (orientation: landscape) {
 
     body {
-        background-color: #fffdfd;	
+        background-color: #54ad54;	
         font-family: Arial, Helvetica, sans-serif;
         font-size: 1em;
     }
@@ -99,10 +100,113 @@
      
         
 }  
-@media screen and (min-width: 1024px) and (min-height: 480px) and (max-width: 1440px) {
+/* normal or regular screen */
+@media screen and (min-width: 1024px) and (max-width: 1750px) and (orientation: landscape)  {
+
+  body {
+      background-color: #faf4f4;	
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1em;
+  }
+  
+  .title {
+      margin-left: 17vw;
+      margin-top: 1.5vh;
+      padding-bottom: 0vh;
+      font-size: 8mm;
+      display: inline-block;
+  
+  }
+  
+  .lineMenu { 
+      border-top: 2px solid rgb(87, 83, 83);
+      margin-left: 17vw;
+      margin-right: 0.6vw;
+  }
+  
+  .lineFooter {
+      position: absolute;
+      bottom: 0;
+      width: 87vw;
+      height: 5vh;
+      border-top: 2px solid rgb(87, 83, 83);
+      margin-left: 30mm;
+      margin-right: 30mm;
+      margin-top: 2mm;
+      
+    }
+  
+  .mainBox{
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+  
+  }
+  
+  .containerInfo {
+      position: absolute;
+      right: 10vw; 
+      left: 8vw;
+      top: 10mm; 
+      width: 100vw;
+      height: 83vh;
+      display: grid;
+      grid-gap: 1.3vw;
+      grid-template-columns: 14vw 14vw 14vw 14vw 14vw;
+      grid-template-rows: auto ;
+      overflow-y: scroll;
+      scroll-snap-type: y mandatory;
+      
+  
+  }
+  
+  .containerMenuLeft {
+      position: absolute;
+      left: 2mm; 
+      top: 20mm; 
+      width: 16vw;
+      height: 80vh;
+      display: grid;
+      grid-template-columns: 4vw 4vw;
+      grid-template-rows: 40vh ;
+      grid-gap: 2vw;
+  
+  }
+
+  .category{
+    position:fixed;
+    left: 3mm; 
+    top: 40mm; 
+  }
+  
+  .footer {
+      position: absolute;
+      bottom: 0;
+      width: 100vw;
+      height: 7vh;
+      text-align: center;
+      align-items: center;
+      font-family: sans-serif;
+      font-size: 16px;
+    }
+    
+  [class*="col-"] {
+      float: left;
+      padding: 15px;
+    }
+  
+    /* For mobile phones: */
+  [class*="col-"] {
+      width: 100%;
+    }
+   
+      
+} 
+/* netbook small screen */
+@media screen and (min-width: 840px) and (max-width: 1024px) and (orientation: landscape) {
 
     body {
-        background-color: #dbd5d5;	
+        background-color: #ffffff;	
         font-family: Arial, Helvetica, sans-serif;
         font-size: 1em;
     }
@@ -192,7 +296,8 @@
         width: 100%;
       }     
 }     
-@media screen and (min-width: 781px) and (max-width: 1023px) {
+/* tables 10.1 pulgadas */
+@media screen and (max-width: 800px) and (orientation: portrait) {
 
   body {
     background-color: #111111;	
@@ -274,7 +379,8 @@
     width: 100%;
   } 
 }
-@media screen and (min-width: 481px) and (max-width: 780px) {
+/* tables 7.0 pulgadas */
+@media screen and (max-width: 600px) and (max-height: 1024px) and (orientation: portrait) {
 
   body {
     background-color: #e21e1e;	
@@ -358,7 +464,212 @@
     width: 100%;
   }
 }
-@media screen and (max-width: 480px) {
+/* mobiles bigger screen such as S21 Iphone 12 */
+@media screen and (max-width: 350px) and (min-height: 720px) and (orientation: portrait)  {
+
+  body {
+      background-color: #582525;	
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1em;
+  }
+  
+  .title {
+      margin-left: 17vw;
+      margin-top: 1.5vh;
+      padding-bottom: 0vh;
+      font-size: 8mm;
+      display: inline-block;
+  
+  }
+  
+  .lineMenu { 
+      border-top: 2px solid rgb(87, 83, 83);
+      margin-left: 17vw;
+      margin-right: 0.6vw;
+  }
+  
+  .lineFooter {
+      position: absolute;
+      bottom: 0;
+      width: 87vw;
+      height: 5vh;
+      border-top: 2px solid rgb(87, 83, 83);
+      margin-left: 30mm;
+      margin-right: 30mm;
+      margin-top: 2mm;
+      
+    }
+  
+  .mainBox{
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+  
+  }
+  
+  .containerInfo {
+      position: absolute;
+      right: 10vw; 
+      left: 17vw;
+      top: 20mm; 
+      width: 80vw;
+      height: 80vh;
+      display: grid;
+      grid-gap: 1.3vw;
+      grid-template-columns: 10vw 10vw 10vw 10vw 10vw 10vw 10vw;
+      grid-template-rows: auto ;
+      overflow-y: scroll;
+      scroll-snap-type: y mandatory;
+      
+  
+  }
+  
+  .containerMenuLeft {
+      position: absolute;
+      left: 2mm; 
+      top: 20mm; 
+      width: 16vw;
+      height: 80vh;
+      display: grid;
+      grid-template-columns: 4vw 4vw;
+      grid-template-rows: 40vh ;
+      grid-gap: 0.5vw;
+  
+  }
+
+  .category{
+    position:fixed;
+    left: 5mm; 
+    top: 40mm; 
+  }
+  
+  .footer {
+      position: absolute;
+      bottom: 0;
+      width: 100vw;
+      height: 5vh;
+      text-align: center;
+      align-items: center;
+      font-family: sans-serif;
+      font-size: 16px;
+    }
+    
+  [class*="col-"] {
+      float: left;
+      padding: 15px;
+    }
+  
+    /* For mobile phones: */
+  [class*="col-"] {
+      width: 100%;
+    }
+   
+      
+} 
+/* mobiles smaller screen */
+@media screen and (min-width: 320px) and (min-height: 480px) and (orientation: portrait)  {
+
+  body {
+      background-color: #221616;	
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1em;
+  }
+  
+  .title {
+      margin-left: 17vw;
+      margin-top: 1.5vh;
+      padding-bottom: 0vh;
+      font-size: 8mm;
+      display: inline-block;
+  
+  }
+  
+  .lineMenu { 
+      border-top: 2px solid rgb(87, 83, 83);
+      margin-left: 17vw;
+      margin-right: 0.6vw;
+  }
+  
+  .lineFooter {
+      position: absolute;
+      bottom: 0;
+      width: 87vw;
+      height: 5vh;
+      border-top: 2px solid rgb(87, 83, 83);
+      margin-left: 30mm;
+      margin-right: 30mm;
+      margin-top: 2mm;
+      
+    }
+  
+  .mainBox{
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+  
+  }
+  
+  .containerInfo {
+      position: absolute;
+      right: 10vw; 
+      left: 17vw;
+      top: 20mm; 
+      width: 80vw;
+      height: 80vh;
+      display: grid;
+      grid-gap: 1.3vw;
+      grid-template-columns: 10vw 10vw 10vw 10vw 10vw 10vw 10vw;
+      grid-template-rows: auto ;
+      overflow-y: scroll;
+      scroll-snap-type: y mandatory;
+      
+  
+  }
+  
+  .containerMenuLeft {
+      position: absolute;
+      left: 2mm; 
+      top: 20mm; 
+      width: 16vw;
+      height: 80vh;
+      display: grid;
+      grid-template-columns: 4vw 4vw;
+      grid-template-rows: 40vh ;
+      grid-gap: 0.5vw;
+  
+  }
+
+  .category{
+    position:fixed;
+    left: 5mm; 
+    top: 40mm; 
+  }
+  
+  .footer {
+      position: absolute;
+      bottom: 0;
+      width: 100vw;
+      height: 5vh;
+      text-align: center;
+      align-items: center;
+      font-family: sans-serif;
+      font-size: 16px;
+    }
+    
+  [class*="col-"] {
+      float: left;
+      padding: 15px;
+    }
+  
+    /* For mobile phones: */
+  [class*="col-"] {
+      width: 100%;
+    }
+   
+      
+} 
+/* watches */
+@media screen and (max-width: 210px) and (max-height: 280px) {
 
   body {
     background-color: #702a91;	
