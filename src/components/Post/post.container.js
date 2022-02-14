@@ -16,7 +16,7 @@ export const mapStateToProps = (state) => ({
 })
 
 export const mapDispatchToProps = (dispatch) => ({
-   updateCustomerSelection: (post) => dispatch(updateCustomerSelection(post))
+   updateCustomerSelection: (selection) => dispatch(updateCustomerSelection(selection))
 });
 
 /** @namespace  Adcash/Component/Post/Container */
@@ -27,14 +27,11 @@ export class PostContainer extends PureComponent {
         category: String.isRequired,
         actionSelected: String.isReq
     }
-    
     static defaultProps = {};
-
     state = {
         actionSelected: '',
         loadApp: ''
     }
-
     constructor(props) {
         super(props)
         
@@ -42,14 +39,12 @@ export class PostContainer extends PureComponent {
         this.handleSubmit = this.handleSubmit.bind(this);
 
     }
-
     handleSelect(post) {
          this.setState({
             actionSelected: post
         });
 
     }
- 
     handleSubmit(data) {
 
         if (this.props.checkboxSelected[0].location === 'node'){
@@ -164,7 +159,6 @@ export class PostContainer extends PureComponent {
              
         }              
     }
-
     renderSelection() {
 
         const { actionSelected, categories, posts, howManyCheckBoxAreSelected } = this.props; 
@@ -178,26 +172,25 @@ export class PostContainer extends PureComponent {
                 return (
                     
                         <form onSubmit={this.handleSubmit}>
-                            <div>
+                            <div  className="textInfo">
                             
                                 Info 
-                                <textarea className="mb-3" id="info" name="info"  style={{ height: '10vh', width:'13vw' }} />
+                                <textarea id="info" name="info" />
             
                                 Category
                                 
-                                <select className="mb-3" id="category" style={{  width:'13vw' }} >
+                                <select id="category"  className="col-s-12 col-8 col-b-8"  >
                                     { categories.map((key) => (
                                         <option value={key.id}>{key.name}</option>
                                     ))}
                                 </select>
                                   <input type="hidden" id="nextId" name="nextId" value={ nextId } />
 
-                                <input type="submit" value="Submit" />
+                                <input type="submit" value="Submit" className='col-12' />
 
                             </div>
                         </form>   
                     )  
-
             case 'update':
                 
             var update = document.getElementById('update');
@@ -215,15 +208,15 @@ export class PostContainer extends PureComponent {
 
                 return (
                         <form onSubmit={this.handleSubmit}>
-                            <div style={{  width:'13vw' }} className="text-justify">
+                            <div  className="textInfo">
                                 Select one item in the up-right conner and then make click in the button Update.
                             </div>                              
                             <div id="update" className="hidden">
                                 Info 
-                                <textarea className="mb-3" id="info" name="info" style={{ height: '10vh', width:'13vw' }}/>
+                                <textarea id="info" name="info"  className="textInfo"/>
             
                                 Category
-                                <select className="mb-3" id="category" style={{  width:'13vw' }} >
+                                <select  className="textInfo" id="category"  >
                                     { categories.map((key) => (
                                         <option value={key.id}>{key.name}</option>
                                     ))}
@@ -233,45 +226,35 @@ export class PostContainer extends PureComponent {
                             </div>
                         </form>    
                     )    
-
             case 'delete':
                 return (
                         <form onSubmit={this.handleSubmit}>
-                            <div style={{  width:'13vw' }} className="text-justify">
+                            <div className="textInfo">
                                 Select the items in the up-right conner and then make click in the button Delete.
                             </div>
-                            <div className='mt-sm-4'>   
+                            <div className="textInfo">   
                                 <input type="submit" value="Delete"  />
                             </div>
                         </form>    
                     )   
-        
             default:
                 break;
         }
     }    
-    
-  
     render() {   
         return (
-           
                 <div>
-                    <DropdownButton
-                        title="Post"
-                        alignRight
-                        class="btn btn-default dropdown-toggle"
-                        onSelect={this.props.updateCustomerSelection}
-                    >
-                        <Dropdown.Item eventKey="create">Create</Dropdown.Item>
-                        <Dropdown.Item eventKey="update">Edit</Dropdown.Item>                            
-                        <Dropdown.Item eventKey="delete">Delete</Dropdown.Item>
-                     </DropdownButton>
-                    
-                  
-                    <Post  
+                    <div className="dropdown">
+                    <button className="dropdownButton">Post</button>
+                    <ul id="dropdown-post" class="dropdown-content">
+                        <li onClick={() => this.props.updateCustomerSelection('create') } >Create</li>
+                        <li onClick={() => this.props.updateCustomerSelection('update') } >Update</li>
+                        <li onClick={() => this.props.updateCustomerSelection('delete') } >Delete</li>
+                    </ul>
+                    </div>
+                    <Post 
                          renderSelection = { this.renderSelection() }
                     /> 
-
                 </div>    
         )           
     }

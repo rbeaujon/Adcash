@@ -11,9 +11,9 @@ export class Post extends PureComponent {
          return (
             <div>
                 <div className='hidden'>
-                    <input type="text" id="addCategory" name="addCategory" size={"12"}/>
+                    <input type="text" id="addCategory" name="addCategory" />
                 </div>
-                 <div class="col-sm-10">
+                 <div>
                     { this.props.renderSelection }
                 </div> 
             </div>

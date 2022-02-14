@@ -16,7 +16,7 @@ export class Category extends PureComponent {
        
         return (
            <div>
-                <div class="col-sm-10">
+                <div class="col-10">
                    { this.props.renderSelection }
                </div> 
            </div>
