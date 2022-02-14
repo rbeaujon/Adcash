@@ -3,17 +3,14 @@ import './styles/main.scss'
 
 function App() {
   return (
-    <div className = "mainBox">
-      <div className = "title">
+    <div>
+      <div className = "title col-s-12 col-12 col-b-12">
         MENU
       </div>
-      <div className="lineMenu"></div> 
-      
+      <div className="lineMenu col-s-12 col-12 col-b-12"></div> 
         <LoadAppContainer />
-     
-      <div className="lineFooter"></div> 
-      <div className="footer"> 
-          <br /> Adcash Test Assignment 
+      <div className="footer col-s-12 col-12 col-b-12"> 
+          <p>Adcash Test Assignment </p> 
       </div> 
     </div> 
   

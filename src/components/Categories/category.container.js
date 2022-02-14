@@ -138,7 +138,7 @@ export class CategoryContainer extends PureComponent {
                     
                         <form onSubmit={this.handleSubmit}>
                             <div className='category'>
-                                <div style={{  width:'13vw' }} className="text-justify">
+                                <div className="textInfo">
                                 Enter the category name
                                 </div>
                                 <input type ="text" className="mb-3" id="name" name="name"  style={{ height: '3vh', width:'13vw' }} />
@@ -165,7 +165,7 @@ export class CategoryContainer extends PureComponent {
                 return (
                     <form onSubmit={this.handleSubmit}>
                         <div className='category'>
-                            <div style={{  width:'13vw' }} className="text-justify">
+                            <div  className="textInfo">
                             Categories availables<br/>
                             Edit them by changing their fields<br/><br/>
                             </div>
@@ -188,7 +188,7 @@ export class CategoryContainer extends PureComponent {
                 return (
                     <form onSubmit={this.handleSubmit}>
                     <div className='category'>  
-                    <div style={{  width:'13vw' }} className="text-justify">
+                    <div className="textInfo">
                         Select the items and then press the delete button. <br/><br/>
                     </div>
                     { categories.map((item) => (
@@ -210,25 +210,20 @@ export class CategoryContainer extends PureComponent {
     
     render() {   
         return (
-           
-                <div>
-                    <DropdownButton
-                        title="Category"
-                        alignRight
-                        class="btn btn-default dropdown-toggle"
-                        onSelect={this.props.updateCustomerSelection}
-                    >
-                        <Dropdown.Item eventKey="createCategory">Create</Dropdown.Item>
-                        <Dropdown.Item eventKey="updateCategory">Edit</Dropdown.Item>                            
-                        <Dropdown.Item eventKey="deleteCategory">Delete</Dropdown.Item>
-                     </DropdownButton>
-                    
-                  
-                    <Category  
-                         renderSelection = { this.renderSelection() }
-                    /> 
+            <div>
+            <div className="dropdown">
+            <button className="dropdownButton">Categories</button>
 
-                </div>    
+            <ul id="dropdown-category" class="dropdown-content">
+                <li onClick={() => this.props.updateCustomerSelection('createCategory') } >Create</li>
+                <li onClick={() => this.props.updateCustomerSelection('updateCategory') } >Update</li>
+                <li onClick={() => this.props.updateCustomerSelection('deleteCategory') } >Delete</li>
+            </ul>
+            </div>
+            <Category
+                renderSelection = { this.renderSelection() }
+            /> 
+            </div>    
         )           
     }
 

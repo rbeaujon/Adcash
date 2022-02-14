@@ -25,9 +25,7 @@ export const mapDispatchToProps = (dispatch) => ({
 /** @namespace  Adcash/Component/LoadApp/Container/LoadAppContaiiner */
 export class LoadAppContainer extends PureComponent {
     static propTypes = {}
-    
     static defaultProps = {};
-
     state = {
         posts: [],
         categories: [],
@@ -37,18 +35,14 @@ export class LoadAppContainer extends PureComponent {
         showCheckbox:''
 
     }
-
     constructor(props) {
         super(props)
         
         this.handleUpdate = this.handleUpdate.bind(this);
     }    
-
-
     async componentDidMount() {
         this.getData();
     }  
-
     async getData() {
         fetch('http://localhost:3200/posts')
         .then((res) => res.json())
@@ -84,11 +78,9 @@ export class LoadAppContainer extends PureComponent {
         })
 
     }
-
     handleUpdate() {
         this.getData();
     }  
-
     render() {
         const { actionSelected } = this.props;
         if(actionSelected === "update" || actionSelected === "delete"){ 
@@ -103,25 +95,28 @@ export class LoadAppContainer extends PureComponent {
     
         return (
             <div>
-                <div className = "containerInfo" >
+                <div>
                     <LoadApp
                     onclick = { this.props.checkboxSelected }
                     { ...this.state }
                     { ...this.props }
                     />
-                </div>
-                <div className = "containerMenuLeft" >
+                </div>  
+                <div className='containerMenu'>           
+                <div className = "col-s-12 col-12 col-b-12" >
                     <Post 
                      { ...this.state }
                      handleUpdate = { this.handleUpdate }
-                    
                     />
-                    
-                    <Category
+                </div>
+                 <div className = "col-s-12 col-12 col-b-12" >   
+                    <Category 
                     { ...this.state }
                     handleUpdate = { this.handleUpdate }
                     />
                 </div> 
+                </div> 
+
             </div>
         )
     }

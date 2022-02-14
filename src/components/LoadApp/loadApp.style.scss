@@ -1,38 +1,40 @@
-.post_container{
-  display: grid;
-  grid-template-columns:  14vw 14vw 14vw 14vw 14vw;
-  padding: 1px;
-}
-
 .post{
     position: relative;
     color: #443f3f;
-    margin: 20px 20px;
-    width: 180px;
-    height: 150px;
+    margin: 0.5vw 0.5vw;
     border-style: groove;
+    font-size: 1vw;
   
   }
 
 .specifications {
     background-color: rgb(196, 193, 193);
     border-color: black;
+    font-size: 0.8vw;
 	}
+.specifications input {
+    position: fixed;
+    margin-left: 31vw;
+    text-align: right;
+    height: 1vw;
+    width: 1vw;
+    background-color: rgb(31, 23, 23);
+
+    @media  screen and (min-width: 780px)  {
+      margin-left: 7vw;
+      }
+    @media  screen and (min-width: 1400px)  {
+      margin-left: 4vw;
+      }
+  }
 
 .items {
-		font-size: 12px;
+		font-size: 0.8vw;
     margin: 0.5em;
     margin-top: 1em;
     text-align: left;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
 
-  .checkmark {
-    position: static;
-    margin-top: 0.5em;
-    margin-left: 5em;
-    height: 15px;
-    width: 15px;
-    background-color: rgb(206, 34, 34);
-  }
+  
   

@@ -13,8 +13,8 @@ export class LoadApp extends PureComponent {
        
         let { posts, categories, showCheckbox } = this.props;
    
-          return (
-              posts.map((key) => (  
+        return (
+            posts.map((key) => (  
                     <div className="post">
                     <div className='specifications'>
                         API: Node
@@ -43,8 +43,8 @@ export class LoadApp extends PureComponent {
        
         let { aistica_categories, aistica_posts, showCheckbox } = this.props;
    
-          return (
-                    aistica_posts.map((key) => (  
+        return (
+            aistica_posts.map((key) => (  
                     <div className="post">
                     <div className='specifications'> 
                         API Aistica
@@ -61,7 +61,7 @@ export class LoadApp extends PureComponent {
                          }
                      })
                     
-                     } 
+                     } <br/>
                      </div> 
                   </div>
               )
@@ -70,13 +70,12 @@ export class LoadApp extends PureComponent {
       
     render() {
         return (
-            <div className='containerInfo'>
+            <div className = "containerInfo col-s-12 col-10 col-b-10" >
                 { this.renderPHP() }
                 { this.renderNode() }
             </div>
         
         )
       }      
-
 }
 export default LoadApp;
