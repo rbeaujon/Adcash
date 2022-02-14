@@ -37,3 +37,8 @@ Open [http://localhost:3200](http://localhost:3200)
   Home
   <http://localhost:3200>
 
+### `Screenshots` 
+<img src="/src/assets/3.jpg" width="80%"> 
+<img src="/src/assets/4.jpg" width="80%">
+<img src="/src/assets/2.jpg" width="80%">
+<img src="/src/assets/1.jpg" width="80%">
