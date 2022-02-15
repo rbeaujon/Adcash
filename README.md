@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# ADCASH ASSESSMENT
 
 Project with Front-End React-Redux and Back-End Nodejs, PHP and Mysql. To manage 2 APIs that shows a lists of posts and categories availables
 
